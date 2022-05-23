@@ -15,51 +15,53 @@ def location_weather():
         print("Could not connect to the server at this time")
     
     
-    def weather_methods():
+def weather_methods():
 
-        reports= location_weather()
+    reports= location_weather()
 
-        weather_keys=[]
+    weather_keys=[]
 
-       [weather_keys.append(key) for key ,value in reports.items()]
+    for key, value in reports.items():
+        
+        weather_keys.append(key)
 
-        week_reports= reports[weather_keys[2]]
+    week_reports= reports[weather_keys[2]]
 
 
-        return week_reports
+    return week_reports
 
         
     
-    def organize_reports():
+def organizeReports():
 
-        data= weather_methods()
+    data= weather_methods()
 
-        for items in data:
+    for items in data:
 
-            for key,value in items.items():
+        for key,value in items.items():
 
-                days= items["day"]
-                max_temp=items["max_temp"]["f"]
-                min_temp= items["min_temp"]["f"]
+            days= items["day"]
+            max_temp=items["max_temp"]["f"]
+            min_temp= items["min_temp"]["f"]
 
-            results= print(f"\n{days} \n The highest temp= {max_temp}\n The lowest temp={min_temp}")
+        results= print(f"\n{days} \n The highest temp= {max_temp}\n The lowest temp={min_temp}")
 
 
-        return results
+    return results
     
     
 
 
 def tempretureReports():
     
-    organize_reports()
+    organizeReports()
         
   
         
       
     
     
-tempreture_reports()
+tempretureReports()
     
   
     
